@@ -1,8 +1,8 @@
 $schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
 type: pipeline
-display_name: ________-_________-___________  # Provide the display name for the pipeline
-experiment_name: ________-________-__________  # Provide the experiment name
-description: ____________-__________-______-____________-______  # Provide the description for the pipeline
+display_name: used-cars-training-pipeline  # Provide the display name for the pipeline
+experiment_name: decision_tree_training_pipeline  # Provide the experiment name
+description: Training Pipeline to predict Used Cars prices using Random Forest Regressor  # Provide the description for the pipeline
 
 inputs:
   raw_data:
@@ -24,8 +24,8 @@ settings:
 
 jobs:
   prep_data:
-    name: ________  # Provide the job name
-    display_name: ________-________  # Provide the display name for the job
+    name: prep_data  # Provide the job name
+    display_name: prep-data  # Provide the display name for the job
     code: ../../../data-science/src
     command: >-
       python prep.py  
