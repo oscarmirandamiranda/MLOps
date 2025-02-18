@@ -9,6 +9,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
+from sklearn.metrics import r2_score
 import mlflow
 import mlflow.sklearn
 
