@@ -15,11 +15,11 @@ import mlflow
 def parse_args():
     '''Parse input arguments'''
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--data", type=str, help="Path to input data")
-    parser.add_argument("--test_train_ratio", type=float, default=0.2)
-    parser.add_argument("--train_data", type=str, help="Path to save train data")
-    parser.add_argument("--test_data", type=str, help="Path to save test data")
+    parser = argparse.ArgumentParser("prep")
+    parser.add_argument("--raw_data", type=str, help="Path to raw data")
+    parser.add_argument("--train_data", type=str, help="Path to train dataset")
+    parser.add_argument("--test_data", type=str, help="Path to test dataset")
+    parser.add_argument("--test_train_ratio", type=float, default=0.2, help="Test-train ratio")
     args = parser.parse_args()
 
     return args
