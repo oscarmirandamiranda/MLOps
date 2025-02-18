@@ -32,6 +32,8 @@ def parse_args():
 def main(args):
     '''Read train and test datasets, train model, evaluate model, save trained model'''
     
+    print("CI/CD script update...")
+
     # Load datasets
     train_df = pd.read_csv(Path(args.train_data)/"train.csv")
     test_df = pd.read_csv(Path(args.test_data)/"test.csv")
