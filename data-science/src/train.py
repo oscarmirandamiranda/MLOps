@@ -59,8 +59,8 @@ def main(args):
     # Log metrics
     print(f'Mean Squared Error (MSE): {mse:.2f}')
     print(f'R² Score: {r2:.2f}')
-    mlflow.log_metric("mean_squared_error", mse)
-    mlflow.log_metric("r2_score", r2)
+    mlflow.log_metric("MSE", mse)
+    mlflow.log_metric("R2", r2)
 
     # Output the trained model
     mlflow.sklearn.save_model(sk_model=rf_model, path=args.model_output)
