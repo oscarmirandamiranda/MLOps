@@ -25,7 +25,15 @@ def parse_args():
 def main(args):
     '''Loads the best-trained model from the sweep job and registers it'''
 
-    print("Registering ", args.model_name)
+    #print("Registering ", args.model_name)
+    print(f"Registering model: {args.model_name}")
+
+    if not os.path.exists(args.model_path):
+        raise FileNotFoundError(f"Model path '{args.model_path}' does not exist!")
+
+    # Ensure active MLflow run
+    if mlflow.active_run() is None:
+        mlflow.start_run()
 
    # Load model
     model = mlflow.sklearn.load_model(args.model_path)
@@ -37,6 +45,7 @@ def main(args):
     run_id = mlflow.active_run().info.run_id
     model_uri = f'runs:/{run_id}/{args.model_name}'
     mlflow_model = mlflow.register_model(model_uri, args.model_name)
+    
     model_version = mlflow_model.version
 
     # Write model info
